@@ -1,4 +1,3 @@
-
 docker pull sheldonhh/smu_dag_sbip
 docker run -it -d --name smudag sheldonhh/smu_dag_sbip
 
