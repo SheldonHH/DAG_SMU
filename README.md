@@ -82,31 +82,20 @@ two
 ```
 
 ### file structure under /root directory
+```
 /root
 │   start_rawbtc.sh # step 1 raw btc data synchronization
 │   0920_rawbtc.log # log from step 1
-│   start_step_34.sh # step 3, 4
-│   0921_step34.log # log from step 3, 4
-│
-└───data_bitcoin 
-BlockSci
+│   hourly_blocksci.log # log from step 2
+│   bloksci.config # config from step 2
+└───BlockSci # step 2 folder
+|
+└───blocksci_output # step 2 output folder
+
 /data1
 |   
-└───data_bitcoin  # directory for raw btc synchronization
-│
-└───folder1
-│   │   file011.txt
-│   │   file012.txt
-│   │
-│   └───subfolder1
-│       │   file111.txt
-│       │   file112.txt
-│       │   ...
-│   
-└───folder2
-    │   file021.txt
-    │   file022.txt
-
+└───data_bitcoin  # step 1 raw btc synchronization folder
+```
 
 ### step 2 config in /root/bloksci.config 
 ```json
