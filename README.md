@@ -2,7 +2,7 @@
 - [DAG_SMU](#dag_smu)
   - [Setup Server done before deploying to SBIP](#setup-server-done-before-deploying-to-sbip)
   - [For SBIP-side](#for-sbip-side)
-    - [FOR SBIP side to pull, start and exec commands in docker (For SBIP Dumitrel Loghin only)](#for-sbip-side-to-pull-start-and-exec-commands-in-docker-for-sbip-dumitrel-loghin-only)
+    - [pull and start docker container (For SBIP Dumitrel Loghin only)](#pull-and-start-docker-container-for-sbip-dumitrel-loghin-only)
     - [Execute outside Docker (For SBIP Dumitrel Loghin only)](#execute-outside-docker-for-sbip-dumitrel-loghin-only)
     - [tail logs (For SBIP Dumitrel Loghin only)](#tail-logs-for-sbip-dumitrel-loghin-only)
   - [for SMU DAG Team](#for-smu-dag-team)
@@ -19,12 +19,12 @@
 ## Setup Server done before deploying to SBIP
 pre-created docker image: https://hub.docker.com/r/sheldonhh/smu_dag_sbip    
 or Ubuntu official image (⚠️ be aware of Ubuntu version ⚠️): 
-[(https://hub.docker.com/_/ubuntu)](https://hub.docker.com/_/ubuntu)](https://hub.docker.com/_/ubuntu)
+https://hub.docker.com/_/ubuntu
 
 
 ## For SBIP-side
 
-### FOR SBIP side to pull, start and exec commands in docker (For SBIP Dumitrel Loghin only)
+### pull and start docker container (For SBIP Dumitrel Loghin only)
 ```bash
 docker pull sheldonhh/smu_dag_sbip
 docker run -it -d --name smudag sheldonhh/smu_dag_sbip
