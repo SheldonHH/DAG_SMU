@@ -2,7 +2,8 @@
 - [DAG_SMU](#dag_smu)
   - [Setup Server done before deploying to SBIP](#setup-server-done-before-deploying-to-sbip)
   - [For SBIP-side](#for-sbip-side)
-    - [FOR SBIP side to pull, start and exec commands in docker (FOR SBIP Dumitrel Loghin only)](#for-sbip-side-to-pull-start-and-exec-commands-in-docker-for-sbip-dumitrel-loghin-only)
+    - [FOR SBIP side to pull, start and exec commands in docker (For SBIP Dumitrel Loghin only)](#for-sbip-side-to-pull-start-and-exec-commands-in-docker-for-sbip-dumitrel-loghin-only)
+    - [Execute outside Docker (For SBIP Dumitrel Loghin only)](#execute-outside-docker-for-sbip-dumitrel-loghin-only)
     - [tail logs (For SBIP Dumitrel Loghin only)](#tail-logs-for-sbip-dumitrel-loghin-only)
   - [for SMU DAG Team](#for-smu-dag-team)
     - [Login](#login)
@@ -13,7 +14,7 @@
   - [Ubuntu (Docker) Specification and Structure](#ubuntu-docker-specification-and-structure)
     - [storage system structure SBIP Ubuntu(docker) server](#storage-system-structure-sbip-ubuntudocker-server)
     - [file structure under /root directory](#file-structure-under-root-directory)
-    - [step 2 config in /root/bloksci.config](#step-2-config-in-rootbloksciconfig)
+    - [config for blocksci preprocess in `/root/bloksci.config`](#config-for-blocksci-preprocess-in-rootbloksciconfig)
   - [Command in `crontab`](#command-in-crontab)
 ## Setup Server done before deploying to SBIP
 https://hub.docker.com/r/sheldonhh/smu_dag_sbip
@@ -22,11 +23,17 @@ docker pull sheldonhh/smu_dag_sbip
 
 ## For SBIP-side
 
-### FOR SBIP side to pull, start and exec commands in docker (FOR SBIP Dumitrel Loghin only)
+### FOR SBIP side to pull, start and exec commands in docker (For SBIP Dumitrel Loghin only)
 ```bash
 docker pull sheldonhh/smu_dag_sbip
 docker run -it -d --name smudag sheldonhh/smu_dag_sbip
-
+## start sshd
+service ssh start
+service ssh restart
+/usr/sbin/sshd -D
+```
+### Execute outside Docker (For SBIP Dumitrel Loghin only)
+```
 # Step 1 sync btc raw data
 docker exec smudag bash /root/start_rawbtc.sh
 
@@ -50,8 +57,7 @@ docker exec smudag tail /root/hourly_blocksci.log
 
 ### Login
 ```bash
-ssh -p 80 root@
-
+ssh -p 80 root@xxx.xxx.xxx.xxx
 ```
 
 ### Execution
@@ -97,7 +103,7 @@ two
 └───data_bitcoin  # step 1 raw btc synchronization folder
 ```
 
-### step 2 config in /root/bloksci.config 
+### config for blocksci preprocess in `/root/bloksci.config`
 ```json
 {
     "chainConfig": {
