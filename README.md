@@ -17,8 +17,9 @@
     - [config for blocksci preprocess in `/root/bloksci.config`](#config-for-blocksci-preprocess-in-rootbloksciconfig)
   - [Command in `crontab`](#command-in-crontab)
 ## Setup Server done before deploying to SBIP
-https://hub.docker.com/r/sheldonhh/smu_dag_sbip
-docker pull sheldonhh/smu_dag_sbip
+pre-created docker image: https://hub.docker.com/r/sheldonhh/smu_dag_sbip    
+or Ubuntu official image (⚠️ be aware of Ubuntu version ⚠️): 
+[docker pull sheldonhh/smu_dag_sbip](https://hub.docker.com/_/ubuntu)
 
 
 ## For SBIP-side
